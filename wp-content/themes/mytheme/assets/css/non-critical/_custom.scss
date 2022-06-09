@@ -1,0 +1,30 @@
+a {
+  &:hover {
+    text-decoration: none;
+    color: $main-bold-color;
+  }
+}
+
+.text-hover-decoration {
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.border-top-doted {
+  border-top: 1px dashed #C6C6C6;
+}
+
+.border-bottom-doted {
+  border-bottom: 1px dashed #C6C6C6;
+}
+
+/*Fb Comments Width Fix*/
+.fb_iframe_widget_fluid_desktop, .fb_iframe_widget_fluid_desktop span, .fb_iframe_widget_fluid_desktop iframe {
+  max-width: 100% !important;
+  width: 100% !important;
+}
+
+amp-img {
+  vertical-align: middle;
+}

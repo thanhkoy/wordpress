@@ -1,0 +1,30 @@
+$main-color: #0ebaf8;
+$main-bold-color: #0896c9;
+$main-light-color: #69d8f5;
+
+$font: (12, 13, 14, 16, 18, 20, 24, 30);
+
+$hover-color: #9F0000;
+$title-color: #EB5B14;
+
+$grey: #C5C5C5;
+$grey1: #808080;
+$grey2: #D9d9d9;
+$grey3: #DADADA;
+
+$red: #AE0000;
+$red1: #cc0000;
+
+$black: #262626;
+$black1: #222222;
+$black2: #191919;
+$black3: #333333;
+
+$breadcrumb-divider: quote(">");
+
+$lg: 'only screen and (min-width: 1200px)';
+$xl: 'only screen and (min-width: 992px)';
+$md: 'only screen and (min-width: 768px)';
+$large-mobile: 'only screen and (max-width: 767px)';
+$small-mobile: 'only screen and (max-width: 479px)';
+$mini-mobile: 'only screen and (max-width: 320px)';
