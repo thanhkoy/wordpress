@@ -2,20 +2,22 @@ $theme_assets_path: '/wp-content/themes/mytheme/assets/';
 
 $main-color: #3cbcfd;
 
-$font: (16, 22, 40);
+$font: (12, 14, 15, 16, 22, 25, 40);
 
-$grey: #C5C5C5;
-$grey1: #808080;
-$grey2: #D9d9d9;
-$grey3: #DADADA;
+$grey: gray;
+$grey1: #51575F;
+$grey2: #ecebeb;
+$grey3: #515151;
 
-$red: #AE0000;
-$red1: #cc0000;
+$green: #1ab686;
 
-$black: #262626;
-$black1: #222222;
-$black2: #191919;
-$black3: #333333;
+$red: #AE0000;//
+$red1: #cc0000;//
+
+$black: #262626;//
+$black1: #222222;//
+$black2: #191919;//
+$black3: #333333;//
 
 $breadcrumb-divider: quote(">");
 
