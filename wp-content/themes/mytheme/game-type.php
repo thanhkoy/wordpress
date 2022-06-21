@@ -10,7 +10,7 @@
                     <li class="breadcrumb-item text-main" aria-current="page">GAMES</li>
                 </ol>
             </nav>
-            <h1 class="font-28 font-weight-500 mb-3 text-grey-1 text-center">GAMES</h1>
+            <h1 class="font-18 font-lg-28 font-weight-500 mb-3 text-grey-1 text-center">GAMES</h1>
             <div class="row px-2 mb-3">
 				<?php for ($i=0; $i < 60; $i++): ?>
 					<div class="col-6 col-lg-2 px-2 mb-3">

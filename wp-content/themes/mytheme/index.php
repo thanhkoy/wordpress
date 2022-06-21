@@ -5,7 +5,7 @@
 			<div class="d-flex align-items-baseline mb-2">
 				<img src="<?= get_template_directory_uri() ?>/assets/images/title_dot.svg" class="mr-1"
 				     width="12" height="20" alt="ESCOLHA DOS EDITORES">
-				<h2 class="font-25 font-weight-500 text-grey-1">ESCOLHA DOS EDITORES</h2>
+				<h2 class="font-18 font-lg-25 font-weight-500 text-grey-1">ESCOLHA DOS EDITORES</h2>
 			</div>
 			<div class="row px-2">
                 <?php global $post; $new_post = getChoicePost(); if ($new_post->have_posts()) while ($new_post->have_posts()):
@@ -19,7 +19,7 @@
 			<div class="d-flex align-items-baseline mb-2">
 				<img src="<?= get_template_directory_uri() ?>/assets/images/title_dot.svg" class="mr-1"
 				     width="12" height="20" alt="POPULARES CONSOLES ROMS">
-				<h2 class="font-25 font-weight-500 text-grey-1">POPULARES CONSOLES ROMS</h2>
+				<h2 class="font-18 font-lg-25 font-weight-500 text-grey-1">POPULARES CONSOLES ROMS</h2>
 			</div>
 			<div class="row px-2">
                 <?php
@@ -42,7 +42,7 @@
 			<div class="d-flex align-items-baseline mb-2">
 				<img src="<?= get_template_directory_uri() ?>/assets/images/title_dot.svg" class="mr-1"
 				     width="12" height="20" alt="JOGOS MAIS ATUALIZADOS">
-				<h2 class="font-25 font-weight-500 text-grey-1">JOGOS MAIS ATUALIZADOS</h2>
+				<h2 class="font-18 font-lg-25 font-weight-500 text-grey-1">JOGOS MAIS ATUALIZADOS</h2>
 			</div>
 			<div class="row px-2">
 				<?php

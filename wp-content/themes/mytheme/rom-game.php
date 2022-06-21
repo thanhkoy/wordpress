@@ -14,8 +14,8 @@
                     <li class="breadcrumb-item text-main" aria-current="page"><?= single_cat_title() ?></li>
                 </ol>
             </nav>
-            <div class="d-flex justify-content-between">
-                <h1 class="font-25 font-weight-500 mb-3 text-grey-1 text-uppercase"><?= single_cat_title() ?></h1>
+            <div class="d-flex justify-content-between flex-column flex-lg-row mb-3">
+                <h1 class="font-18 font-lg-25 font-weight-500 mb-3 text-grey-1 text-uppercase"><?= single_cat_title() ?></h1>
                 <div class="form-group">
                     <label class="font-12 text-main">ORDENAR POR</label>
                     <select class="form-control font-14 text-grey-1 p-1">
@@ -61,7 +61,7 @@
                 </div>
 			</div>
             <div class="description">
-                <h2 class="font-25 font-weight-500">DESCRIÇÃO</h2>
+                <h2 class="font-18 font-lg-25 font-weight-500">DESCRIÇÃO</h2>
                 <div class="content text-grey-4">
 	                <?= category_description() ?>
                 </div>

@@ -29,6 +29,12 @@
 
 // Extra large devices (large desktops, 1200px and up)
 @media #{$lg} {
+  .font-lg-25 {
+    font-size: 25px;
+  }
+  .font-lg-28 {
+    font-size: 28px;
+  }
   .position-lg-static {
     position: static !important;
   }

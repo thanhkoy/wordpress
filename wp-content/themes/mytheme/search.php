@@ -24,7 +24,7 @@ if (isset($_GET['s']) && trim($_GET['s']) != ''):
                     <li class="breadcrumb-item text-main" aria-current="page">Search for <?= $_GET['s'] ?></li>
                 </ol>
             </nav>
-            <h1 class="font-25 font-weight-500 mb-3 text-grey-1 text-uppercase text-center">SEARCH FOR <?= $_GET['s'] ?></h1>
+            <h1 class="font-18 font-lg-28 font-weight-500 mb-3 text-grey-1 text-uppercase text-center">SEARCH FOR <?= $_GET['s'] ?></h1>
             <div class="row px-2 mb-3">
 	            <?php global $post; if ($list_item->have_posts()) while ($list_item->have_posts()) {
 		            $list_item->the_post();

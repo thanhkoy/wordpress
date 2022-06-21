@@ -21,11 +21,11 @@ if (!empty($parent[0]->parent)) $parent[] = get_category($parent[0]->parent);
                     </ol>
                 </nav>
                 <div class="row mb-3">
-                    <div class="col-8 d-flex">
+                    <div class="col-12 col-lg-8 d-flex flex-column flex-lg-row">
                         <img loading="lazy" src="<?= get_the_post_thumbnail_url() ?>"
-                             alt="Pokemon Ultra Violet" width="250" height="250">
+                             alt="<?= get_the_title() ?>" width="250" height="250">
                         <div class="text-grey-1 font-14 pl-3">
-                            <h1 class="font-28 text-black-1 font-weight-500"><?= get_the_title() ?></h1>
+                            <h1 class="font-22 font-lg-28 text-black-1 font-weight-500"><?= get_the_title() ?></h1>
                             <div class="d-flex">
                                 <div>
                                     <p class="mb-2">Atualizados</p>
@@ -59,11 +59,11 @@ if (!empty($parent[0]->parent)) $parent[] = get_category($parent[0]->parent);
                             </div>
                         </div>
                     </div>
-                    <div class="col-4 d-flex flex-column align-items-end justify-content-center">
-                        <a class="bg-main btn-main btn-main-hover-orange text-white p-2 font-18 rounded-pill text-decoration-none d-block w-75 p-4 text-center my-2" href="/" title="Baixar agora">
+                    <div class="col-12 col-lg-4 d-flex flex-column align-items-end justify-content-center pl-lg-5">
+                        <a class="bg-main btn-main btn-main-hover-orange text-white p-3 font-18 rounded-pill text-decoration-none d-block p-lg-4 text-center my-2 w-100" href="/" title="Baixar agora">
                             <i class="fa fa-cloud-download mr-2 font-22" aria-hidden="true"></i>Baixar agora
                         </a>
-                        <a class="px-3 py-2 font-14 text-center rounded-pill bg-blue btn-opacity d-block w-75 text-decoration-none my-2" href="/" title="Nintendo 3DS (3DS)">
+                        <a class="px-3 py-2 font-14 text-center rounded-pill bg-blue btn-opacity d-block text-decoration-none my-2 w-100" href="/" title="Nintendo 3DS (3DS)">
                             <span class="text-yellow">Atenção! </span>
                             <span class="text-white">Para jogar esta Roms precisa baixar </span>
                             <span class="text-yellow"><?= $parent[0]->name ?></span>
@@ -116,7 +116,7 @@ if (!empty($parent[0]->parent)) $parent[] = get_category($parent[0]->parent);
                             <div class="d-flex align-items-baseline mb-2">
                                 <img src="<?= get_template_directory_uri() ?>/assets/images/title_dot.svg" class="mr-1"
                                      width="12" height="20" alt="VER MAIS JOGOS INTERESSANTES">
-                                <h2 class="font-25 font-weight-500 text-grey-1">VER MAIS JOGOS INTERESSANTES</h2>
+                                <h2 class="font-18 font-lg-25 font-weight-500 text-grey-1">VER MAIS JOGOS INTERESSANTES</h2>
                             </div>
                             <div class="row px-2">
 								<?php
