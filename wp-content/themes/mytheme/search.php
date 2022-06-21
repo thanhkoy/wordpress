@@ -1,20 +1,17 @@
-<?php get_header(); ob_start(); ?>
-<?php
-if (isset($_GET['s']) && trim($_GET['s']) != '') {
+<?php ob_start(); get_header();
+if (isset($_GET['s']) && trim($_GET['s']) != ''):
     do_action('logUsrSearch');
-}
-$argsArray = array(
-	'post_type' => 'post',
-	's' => $_GET['s'],
-	'post_status' => 'publish',
-	'showposts' => 50,
-	'orderby' => 'date',
-	'order' => 'desc',
-	'paged' => get_query_var('paged')
-);
-$config_ringtone = get_config_ringtone();
-$query_posts = new WP_Query($argsArray);
-$count = $query_posts->post_count;
+    $params = array(
+        'post_type' => array('post'),
+        's' => $_GET['s'],
+        'post_status' => 'publish',
+        'showposts' => 50,
+        'orderby' => 'date',
+        'order' => 'desc',
+        'paged' => get_query_var('paged')
+    );
+    $list_item = new WP_Query($params);
+    $count = $list_item->post_count;
 ?>
 <div class="row">
     <div class="col-12">
@@ -24,36 +21,16 @@ $count = $query_posts->post_count;
                     <li class="breadcrumb-item">
                         <a href="/" class="text-main text-hover-orange text-decoration-none">Casa</a>
                     </li>
-                    <li class="breadcrumb-item">
-                        <a href="/" class="text-main text-hover-orange text-decoration-none">ROMS</a>
-                    </li>
-                    <li class="breadcrumb-item text-main" aria-current="page"><?= single_cat_title() ?></li>
+                    <li class="breadcrumb-item text-main" aria-current="page">Search for <?= $_GET['s'] ?></li>
                 </ol>
             </nav>
-            <div class="d-flex justify-content-between">
-                <h1 class="font-25 font-weight-500 mb-3 text-grey-1 text-uppercase"><?= single_cat_title() ?></h1>
-                <div class="form-group">
-                    <label class="font-12 text-main">ORDENAR POR</label>
-                    <select class="form-control font-14 text-grey-1 p-1">
-                        <option selected>Atualizados recentemente</option>
-                        <option>Novos lançamentos</option>
-                        <option>Populares</option>
-                    </select>
-                </div>
-            </div>
+            <h1 class="font-25 font-weight-500 mb-3 text-grey-1 text-uppercase text-center">SEARCH FOR <?= $_GET['s'] ?></h1>
             <div class="row px-2 mb-3">
-				<?php
-				$params = [
-					'category' => $args['category_id'],
-					'numberposts' => 12
-				];
-				global $post;
-				$posts = get_posts($params);
-				setup_postdata($post);
-				if (!empty($posts)) foreach ($posts as $post)
-					get_template_part('template/article', 'game', ['class' => 'col-lg-2']);
-				wp_reset_postdata();
-				?>
+	            <?php global $post; if ($list_item->have_posts()) while ($list_item->have_posts()) {
+		            $list_item->the_post();
+		            get_template_part('template/article', 'game', ['class' => 'col-lg-2']);
+		            wp_reset_postdata();
+                } ?>
                 <div class="pagination d-flex justify-content-center w-100">
                     <ul class="list-unstyled d-flex">
                         <li class="mx-1 active">
@@ -76,13 +53,7 @@ $count = $query_posts->post_count;
                     </ul>
                 </div>
             </div>
-            <div class="description">
-                <h2 class="font-25 font-weight-500">DESCRIÇÃO</h2>
-                <div class="content text-grey-4">
-					<?= category_description() ?>
-                </div>
-            </div>
         </section>
     </div>
 </div>
-<?php ob_end_clean(); get_footer();?>
+<?php endif; get_footer(); ?>
