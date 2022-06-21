@@ -1,13 +1,19 @@
 // Small devices (landscape phones, 576px and up)
 @media #{$large-mobile} {
   header {
-    .navbar {
-      .navbar-nav {
-        .nav-item {
-          .nav-link {
-            border: none;
-          }
-        }
+    /*background-image: none !important;
+    background-color: $main-color !important;*/
+    img {
+      height: 40px;
+      width: auto;
+    }
+    #menu-head {
+      background-color: $black1;
+      z-index: 10;
+      transform: translateX(-400px);
+      &.open {
+        transform: translateX(0);
+        transition: transform 0.3s ease, -webkit-transform 0.3s ease;
       }
     }
   }
@@ -15,15 +21,6 @@
 
 // Medium devices (tablets, 768px and up)
 @media #{$md} {
-  .pr-md-15px {
-    padding-right: 15px !important;
-  }
-  .font-md-18 {
-    font-size: 18px;
-  }
-  .main-content {
-    width: 784px;
-  }
 }
 
 // Large devices (desktops, 992px and up)
@@ -32,4 +29,24 @@
 
 // Extra large devices (large desktops, 1200px and up)
 @media #{$lg} {
+  .position-lg-static {
+    position: static !important;
+  }
+  .position-lg-absolute {
+    position: absolute !important;
+  }
+  .bg-lg-transparent {
+    background: transparent !important;
+  }
+  .w-lg-100 {
+    width: 100% !important;
+  }
+  .overflow-lg-none {
+    overflow: unset !important;
+  }
+
+  .dropdown-menu {
+    background: $main-color !important;
+    min-width: 200px;
+  }
 }

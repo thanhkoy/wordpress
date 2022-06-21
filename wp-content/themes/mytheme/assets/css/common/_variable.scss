@@ -1,23 +1,26 @@
 $theme_assets_path: '/wp-content/themes/mytheme/assets/';
 
-$main-color: #3cbcfd;
+$main-color: #01875f;
 
-$font: (12, 14, 15, 16, 22, 25, 40);
+$font: (12, 14, 15, 16, 18, 20, 22, 25, 28, 40);
 
 $grey: gray;
 $grey1: #51575F;
 $grey2: #ecebeb;
 $grey3: #515151;
+$grey4: #4F5665;
+$grey5: #F3F3F3;
 
-$green: #1ab686;
+$blue: #3cbcfd;
 
-$red: #AE0000;//
-$red1: #cc0000;//
+$orange: #e36505;
 
-$black: #262626;//
-$black1: #222222;//
-$black2: #191919;//
-$black3: #333333;//
+$black: rgba(0,0,0,0.9);
+$black1: #000;
+
+$green: #17CFCE;
+
+$yellow: #ffe500;
 
 $breadcrumb-divider: quote(">");
 
