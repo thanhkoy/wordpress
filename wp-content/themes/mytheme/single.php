@@ -20,6 +20,11 @@ if (!empty($parent[0]->parent)) $parent[] = get_category($parent[0]->parent);
                         <li class="breadcrumb-item text-main" aria-current="page"><?= get_the_title() ?></li>
                     </ol>
                 </nav>
+	            <?php
+/*	            if (function_exists('yoast_breadcrumb')) {
+		            yoast_breadcrumb('<nav aria-label="breadcrumb"><ol class="breadcrumb bg-white p-0">','</ol></nav>');
+	            }
+	            */?>
                 <div class="row mb-3">
                     <div class="col-12 col-lg-8 d-flex flex-column flex-lg-row">
                         <img loading="lazy" src="<?= get_the_post_thumbnail_url() ?>"

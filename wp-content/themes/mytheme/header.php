@@ -5,8 +5,11 @@ $ver = '0.01';
 <html lang="vi-VN">
 <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
+    <title><?php wp_title(); ?></title>
+    <meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
+    <meta name="Keywords" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
     <link rel="shortcut icon" href="<?= get_template_directory_uri() ?>/assets/images/favicon.png"/>
     <link rel="apple-touch-icon" href="<?= get_template_directory_uri() ?>/assets/images/favicon.png"/>
 
@@ -24,6 +27,10 @@ $ver = '0.01';
     <script defer src="<?= get_template_directory_uri() ?>/assets/js/jquery.min.js?<?= $ver ?>"></script>
     <script defer src="<?= get_template_directory_uri() ?>/assets/js/bootstrap.min.js?<?= $ver ?>"></script>
     <script defer src="<?= get_template_directory_uri() ?>/assets/js/custom.js?<?= $ver ?>"></script>
+
+    <!--Wp_head-->
+	<?php wp_head(); ?>
+    <!--End Wp_head-->
 </head>
 <body>
 <header class="shadow py-lg-2 bg-main">

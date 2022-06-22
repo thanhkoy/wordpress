@@ -5,7 +5,7 @@ if (isset($_GET['s']) && trim($_GET['s']) != ''):
         'post_type' => array('post'),
         's' => $_GET['s'],
         'post_status' => 'publish',
-        'showposts' => 50,
+        'showposts' => get_option('posts_per_page'),
         'orderby' => 'date',
         'order' => 'desc',
         'paged' => get_query_var('paged')
@@ -31,27 +31,15 @@ if (isset($_GET['s']) && trim($_GET['s']) != ''):
 		            get_template_part('template/article', 'game', ['class' => 'col-lg-2']);
 		            wp_reset_postdata();
                 } ?>
-                <div class="pagination d-flex justify-content-center w-100">
-                    <ul class="list-unstyled d-flex">
-                        <li class="mx-1 active">
-                            <a class="d-flex justify-content-center align-items-center bg-main text-decoration-none rounded-circle text-white border-0" href="/">1</a>
-                        </li>
-                        <li class="mx-1">
-                            <a class="d-flex justify-content-center align-items-center bg-main text-decoration-none rounded-circle text-white border-0" href="/">2</a>
-                        </li>
-                        <li class="mx-1">
-                            <a class="d-flex justify-content-center align-items-center bg-main text-decoration-none rounded-circle text-white border-0" href="/">3</a>
-                        </li>
-                        <li class="mx-1">
-                            <a class="d-flex justify-content-center align-items-center bg-main text-decoration-none rounded-circle text-white border-0" href="/">4</a>
-                        </li>
-                        <li class="mx-1 active">
-                            <a class="d-flex justify-content-center align-items-center bg-main text-decoration-none rounded-circle text-white border-0" href="/">
-                                <i class="fa fa-chevron-right" aria-hidden="true"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+
+	            <?php the_posts_pagination(array(
+		            'type' => 'list',
+		            'mid_size'  => 2,
+		            'class' => 'w-100',
+		            'prev_text' => __('<i class="fa fa-chevron-left" aria-hidden="true"></i>', 'textdomain' ),
+		            'next_text' => __('<i class="fa fa-chevron-right" aria-hidden="true"></i>', 'textdomain' ),
+	            )) ?>
+
             </div>
         </section>
     </div>

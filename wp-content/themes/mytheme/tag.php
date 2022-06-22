@@ -1,5 +1,7 @@
 <?= get_header(); ?>
-<?php if (!empty($args['category_id'])): ?>
+<?php
+$oneItem = get_queried_object();
+?>
 <div class="row">
 	<div class="col-12">
 		<section class="mb-4">
@@ -9,13 +11,13 @@
                         <a href="/" class="text-main text-hover-orange text-decoration-none">Casa</a>
                     </li>
                     <li class="breadcrumb-item">
-                        <a href="/" class="text-main text-hover-orange text-decoration-none">ROMS</a>
+                        <a href="/" class="text-main text-hover-orange text-decoration-none">Games</a>
                     </li>
-                    <li class="breadcrumb-item text-main" aria-current="page"><?= single_cat_title() ?></li>
+                    <li class="breadcrumb-item text-main" aria-current="page"><?= $oneItem->name ?></li>
                 </ol>
             </nav>
-            <div class="d-flex justify-content-between flex-column flex-lg-row mb-3">
-                <h1 class="font-18 font-lg-25 font-weight-500 mb-3 text-grey-1 text-uppercase"><?= single_cat_title() ?></h1>
+            <div class="d-flex justify-content-between mb-3 flex-column flex-lg-row">
+                <h1 class="font-18 font-lg-25 font-weight-500 mb-3 text-grey-1 text-uppercase"><?= $oneItem->name ?></h1>
                 <div class="form-group">
                     <label class="font-12 text-main">ORDENAR POR</label>
                     <select class="form-control font-14 text-grey-1 p-1">
@@ -28,8 +30,11 @@
 			<div class="row px-2 mb-3">
 				<?php if (have_posts()) : while (have_posts()) {
 					the_post();
-					get_template_part('template/article', 'game', ['class' => 'col-lg-2']);
-				}
+					get_template_part('template/article', 'game', [
+						'class' => 'col-lg-2',
+						'tag' => get_the_category()[0]->name ?? false
+					]);
+                }
 				else: ?>
                     <p><?php esc_html_e( 'Sorry, no posts matched your criteria.' ); ?></p>
 				<?php endif; ?>
@@ -46,11 +51,10 @@
             <div class="description">
                 <h2 class="font-18 font-lg-25 font-weight-500">DESCRIÇÃO</h2>
                 <div class="content text-grey-4">
-	                <?= category_description() ?>
+                    <?= $oneItem->description ?>
                 </div>
             </div>
 		</section>
 	</div>
 </div>
-<?php endif; ?>
 <?= get_footer(); ?>

@@ -48,5 +48,9 @@
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+<!--Wp_footer-->
+<?php wp_footer(); ?>
+<!--End Wp_footer-->
 </body>
 </html>
