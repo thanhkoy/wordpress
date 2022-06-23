@@ -76,3 +76,10 @@ add_theme_support('nav-menus');
 register_nav_menus( array(
 	'main_top' => __( 'Menu chính ở trên'),
 ) );
+
+add_filter('upload_mimes', 'allow_custom_mimes');
+function allow_custom_mimes ( $existing_mimes=array() ) {
+// ' with mime type 'application/vnd.android.package-archive'
+	$existing_mimes['apk'] = 'application/vnd.android.package-archive';
+	return $existing_mimes;
+}

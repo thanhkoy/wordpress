@@ -43,10 +43,10 @@ if (!empty($parent[0]->parent)) $parent[] = get_category($parent[0]->parent);
                                     </a>
                                 </div>
                                 <div class="ml-2">
-                                    <p class="font-weight-500 mb-2">May 26, 2022</p>
-                                    <p class="font-weight-500 mb-2">US</p>
-                                    <p class="font-weight-500 mb-2">573 MB</p>
-                                    <p class="font-weight-500 mb-2">46</p>
+                                    <p class="font-weight-500 mb-2"><?php the_field('updated') ?? ''; ?></p>
+                                    <p class="font-weight-500 mb-2"><?php the_field('nation') ?? ''; ?></p>
+                                    <p class="font-weight-500 mb-2"><?php the_field('size') ?? ''; ?></p>
+                                    <p class="font-weight-500 mb-2"><?php the_field('download_count') ?? ''; ?></p>
                                     <div class="font-14 text-grey-3">
                                         <i class="fa fa-star" aria-hidden="true"></i>
                                         <i class="fa fa-star" aria-hidden="true"></i>
@@ -65,10 +65,14 @@ if (!empty($parent[0]->parent)) $parent[] = get_category($parent[0]->parent);
                         </div>
                     </div>
                     <div class="col-12 col-lg-4 d-flex flex-column align-items-end justify-content-center pl-lg-5">
-                        <a class="bg-main btn-main btn-main-hover-orange text-white p-3 font-18 rounded-pill text-decoration-none d-block p-lg-4 text-center my-2 w-100" href="/" title="Baixar agora">
-                            <i class="fa fa-cloud-download mr-2 font-22" aria-hidden="true"></i>Baixar agora
-                        </a>
-                        <a class="px-3 py-2 font-14 text-center rounded-pill bg-blue btn-opacity d-block text-decoration-none my-2 w-100" href="/" title="Nintendo 3DS (3DS)">
+                        <?php if(get_field('file_download')): ?>
+                            <a class="bg-main btn-main btn-main-hover-orange text-white p-3 font-18 rounded-pill text-decoration-none d-block p-lg-4 text-center my-2 w-100 download"
+                               href="<?php the_field('file_download'); ?>" title="Baixar agora">
+                                <i class="fa fa-cloud-download mr-2 font-22" aria-hidden="true"></i>Baixar agora
+                            </a>
+                        <?php endif; ?>
+                        <a class="px-3 py-2 font-14 text-center rounded-pill bg-blue btn-opacity d-block text-decoration-none my-2 w-100"
+                           href="<?= get_category_link($parent[0]) ?>" title="<?= $parent[0]->name ?>">
                             <span class="text-yellow">Atenção! </span>
                             <span class="text-white">Para jogar esta Roms precisa baixar </span>
                             <span class="text-yellow"><?= $parent[0]->name ?></span>
@@ -78,45 +82,53 @@ if (!empty($parent[0]->parent)) $parent[] = get_category($parent[0]->parent);
                 <div class="row">
                     <div class="col-12 col-lg-9 mb-3 description">
                         <h2 class="text-black-1 font-20 font-weight-500">Descrição Fotos</h2>
-                        <div id="demo" class="carousel slide my-3" data-ride="carousel" data-interval="0">
+                        <?php if(get_field('image_1')): ?>
+                            <div id="demo" class="carousel slide my-3 navigation" data-ride="carousel" data-interval="0">
                             <div class="carousel-inner w-80 mx-auto">
-                                <div class="carousel-item active">
-                                    <img class="w-100" src="<?= get_template_directory_uri() ?>/assets/demo_img/pokemon-ultra-violet-rom-4.jpg" alt="">
-                                </div>
-                                <div class="carousel-item">
-                                    <img class="w-100" src="<?= get_template_directory_uri() ?>/assets/demo_img/pokemon-ultra-violet-rom-4.jpg" alt="">
-                                </div>
-                                <div class="carousel-item">
-                                    <img class="w-100" src="<?= get_template_directory_uri() ?>/assets/demo_img/pokemon-ultra-violet-rom-4.jpg" alt="">
-                                </div>
+                                <?php
+                                for ($i = 1; $i <= 4; $i++):
+                                if(get_field('image_' . $i)):
+                                ?>
+                                    <div class="carousel-item <?= $i == 1 ? 'active' : '' ?>">
+                                        <img loading="lazy" class="w-100" src="<?php the_field('image_' . $i) ?>" alt="">
+                                    </div>
+                                <?php endif; endfor; ?>
                             </div>
-                            <ul class="pagination list-unstyled">
-                                <li class="carousel-control-prev">
-                                    <a class="d-flex justify-content-center align-items-center bg-main text-decoration-none rounded-circle text-white border-0"
-                                       href="#demo" data-slide="prev">
-                                        <i class="fa fa-chevron-left" aria-hidden="true"></i>
-                                    </a>
-                                </li>
-                                <li class="carousel-control-next">
-                                    <a class="d-flex justify-content-center align-items-center bg-main text-decoration-none rounded-circle text-white border-0"
-                                       href="#demo" data-slide="next">
-                                        <i class="fa fa-chevron-right" aria-hidden="true"></i>
-                                    </a>
-                                </li>
-                            </ul>
+                            <div class="nav-links">
+                                <ul>
+                                    <li class="carousel-control-prev">
+                                        <a
+                                           href="#demo" data-slide="prev">
+                                            <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+                                    <li class="carousel-control-next">
+                                        <a
+                                           href="#demo" data-slide="next">
+                                            <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
                             <ul class="carousel-indicators position-static">
-                                <li data-target="#demo" data-slide-to="0" class="bg-main border-0 active"></li>
-                                <li data-target="#demo" data-slide-to="1" class="bg-main border-0"></li>
-                                <li data-target="#demo" data-slide-to="2" class="bg-main border-0"></li>
+                                <?php for ($j = 0; $j < 4; $j++): ?>
+                                    <li data-target="#demo" data-slide-to="<?= $j ?>" class="bg-main border-0 <?= $j == 0 ? 'active' : '' ?>"></li>
+                                <?php endfor; ?>
                             </ul>
                         </div>
+                        <?php endif; ?>
                         <div class="content mb-3">
                             <?= get_the_content() ?>
                         </div>
-                        <div class="mb-3">
-                            <div class="bg-main px-3 py-2 d-inline-block text-white font-weight-bold mr-2">Tópico</div>
-                            <a class="bg-white btn-main btn-main-reverse px-3 py-2 d-inline-block text-main font-weight-bold mr-2 text-decoration-none" href="/" title="Batman">Batman</a>
-                        </div>
+                        <?php if (!empty(get_the_tags())): ?>
+                            <div class="mb-3">
+                                <div class="bg-main px-3 py-2 d-inline-block text-white font-weight-bold mr-2">Tópico</div>
+                                <?php foreach (get_the_tags() as $value): ?>
+                                    <a class="bg-white btn-main btn-main-reverse px-3 py-2 d-inline-block text-main font-weight-bold mr-2 text-decoration-none"
+                                       href="<?= get_tag_link($value) ?>" title="<?= $value->name ?>"><?= $value->name ?></a>
+                                <?php endforeach; ?>
+                            </div>
+                        <?php endif; ?>
                         <section class="mb-4">
                             <div class="d-flex align-items-baseline mb-2">
                                 <img src="<?= get_template_directory_uri() ?>/assets/images/title_dot.svg" class="mr-1"
