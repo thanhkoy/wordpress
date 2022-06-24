@@ -9,8 +9,12 @@ body {
 
 main {
   .breadcrumb {
-    .breadcrumb-item + .breadcrumb-item::before {
-      content: $breadcrumb-divider;
+    a {
+      color: $main-color;
+      text-decoration: none;
+      &:hover {
+        color: $orange;
+      }
     }
   }
 

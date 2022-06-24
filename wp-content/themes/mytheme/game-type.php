@@ -7,14 +7,10 @@ $list_item = get_tags(array(
 <div class="row">
     <div class="col-12">
         <section class="mb-4">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb bg-white p-0">
-                    <li class="breadcrumb-item">
-                        <a href="/" class="text-main text-hover-orange text-decoration-none">Casa</a>
-                    </li>
-                    <li class="breadcrumb-item text-main" aria-current="page"><?= get_the_title() ?></li>
-                </ol>
-            </nav>
+	        <?php
+	        if (function_exists('yoast_breadcrumb'))
+		        yoast_breadcrumb('<nav aria-label="breadcrumb" class="overflow-auto"><ol class="breadcrumb bg-white p-0 d-block text-nowrap">','</ol></nav>');
+	        ?>
             <h1 class="font-18 font-lg-28 font-weight-500 mb-3 text-grey-1 text-center"><?= get_the_title() ?></h1>
             <div class="row px-2 mb-3">
 				<?php foreach ($list_item as $value): ?>

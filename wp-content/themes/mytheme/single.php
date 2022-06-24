@@ -6,30 +6,17 @@ if (!empty($parent[0]->parent)) $parent[] = get_category($parent[0]->parent);
     <div class="row">
         <div class="col-12">
             <section class="mb-4">
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb bg-white p-0">
-                        <li class="breadcrumb-item">
-                            <a href="/" class="text-main text-hover-orange text-decoration-none">Casa</a>
-                        </li>
-                        <li class="breadcrumb-item">
-                            <a href="/" class="text-main text-hover-orange text-decoration-none">ROMS</a>
-                        </li>
-                        <li class="breadcrumb-item">
-                            <a href="<?= get_category_link($parent[0]) ?>" class="text-main text-hover-orange text-decoration-none"><?= $parent[0]->name ?? '' ?></a>
-                        </li>
-                        <li class="breadcrumb-item text-main" aria-current="page"><?= get_the_title() ?></li>
-                    </ol>
-                </nav>
 	            <?php
-/*	            if (function_exists('yoast_breadcrumb')) {
-		            yoast_breadcrumb('<nav aria-label="breadcrumb"><ol class="breadcrumb bg-white p-0">','</ol></nav>');
-	            }
-	            */?>
+	            if (function_exists('yoast_breadcrumb'))
+		            yoast_breadcrumb('<nav aria-label="breadcrumb" class="overflow-auto"><ol class="breadcrumb bg-white p-0 d-block text-nowrap">','</ol></nav>');
+	            ?>
                 <div class="row mb-3">
                     <div class="col-12 col-lg-8 d-flex flex-column flex-lg-row">
-                        <img loading="lazy" src="<?= get_the_post_thumbnail_url() ?>"
-                             alt="<?= get_the_title() ?>" width="250" height="250">
-                        <div class="text-grey-1 font-14 pl-3">
+                        <div class="text-center mb-3">
+                            <img loading="lazy" src="<?= get_the_post_thumbnail_url() ?>"
+                                 alt="<?= get_the_title() ?>" width="250" height="250">
+                        </div>
+                        <div class="text-grey-1 font-14 pl-0 pl-lg-3">
                             <h1 class="font-22 font-lg-28 text-black-1 font-weight-500"><?= get_the_title() ?></h1>
                             <div class="d-flex">
                                 <div>
@@ -56,9 +43,9 @@ if (!empty($parent[0]->parent)) $parent[] = get_category($parent[0]->parent);
                                     </div>
                                 </div>
                             </div>
-                            <div class="d-flex mt-2">
+                            <div class="d-flex mt-2 flex-wrap">
                                 <?php if (!empty($parent)) foreach ($parent as $value): ?>
-                                    <a class="bg-main btn-main text-white p-2 font-12 rounded-pill text-decoration-none px-3 py-2 mx-1"
+                                    <a class="bg-main btn-main text-white p-2 font-12 rounded-pill text-decoration-none px-3 py-2 mx-0 mx-lg-1 mb-2"
                                        href="<?= get_category_link($value) ?>" title="<?= $value->name ?>"><?= $value->name ?></a>
                                 <?php endforeach; ?>
                             </div>
@@ -84,7 +71,7 @@ if (!empty($parent[0]->parent)) $parent[] = get_category($parent[0]->parent);
                         <h2 class="text-black-1 font-20 font-weight-500">Descrição Fotos</h2>
                         <?php if(get_field('image_1')): ?>
                             <div id="demo" class="carousel slide my-3 navigation" data-ride="carousel" data-interval="0">
-                            <div class="carousel-inner w-80 mx-auto">
+                            <div class="carousel-inner w-75 mx-auto">
                                 <?php
                                 for ($i = 1; $i <= 4; $i++):
                                 if(get_field('image_' . $i)):
@@ -111,7 +98,7 @@ if (!empty($parent[0]->parent)) $parent[] = get_category($parent[0]->parent);
                                 </ul>
                             </div>
                             <ul class="carousel-indicators position-static">
-                                <?php for ($j = 0; $j < 4; $j++): ?>
+                                <?php for ($j = 0; $j < $i - 2; $j++): ?>
                                     <li data-target="#demo" data-slide-to="<?= $j ?>" class="bg-main border-0 <?= $j == 0 ? 'active' : '' ?>"></li>
                                 <?php endfor; ?>
                             </ul>
@@ -139,7 +126,8 @@ if (!empty($parent[0]->parent)) $parent[] = get_category($parent[0]->parent);
 								<?php
 								$params = [
 									'category' => $parent[0]->cat_ID,
-									'numberposts' => 12
+									'numberposts' => 12,
+                                    'exclude' => get_the_ID()
 								];
 								global $post;
 								$posts = get_posts($params);
