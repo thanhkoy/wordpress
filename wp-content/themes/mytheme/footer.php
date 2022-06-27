@@ -1,9 +1,9 @@
 </main>
 <footer class="container-fluid text-center py-3 font-14">
     <div class="mt-3 d-flex justify-content-center flex-column flex-lg-row">
-        <a href="/" class="text-grey-1 text-hover-orange text-decoration-none mx-3 mb-3" title="Política de Privacidade">Política de Privacidade</a>
-        <a href="/" class="text-grey-1 text-hover-orange text-decoration-none mx-3 mb-3" title="Termos de uso">Termos de uso</a>
-        <a href="/" class="text-grey-1 text-hover-orange text-decoration-none mx-3 mb-3" title="Contato">Contato</a>
+        <a href="/" class="text-grey-1 text-hover-orange text-decoration-none mx-3 mb-3" title="Privacy Policy">Privacy Policy</a>
+        <a href="/" class="text-grey-1 text-hover-orange text-decoration-none mx-3 mb-3" title="Terms of use">Terms of use</a>
+        <a href="/" class="text-grey-1 text-hover-orange text-decoration-none mx-3 mb-3" title="Contact">Contact</a>
     </div>
     <div class="mb-3">
         <a href="/" class="text-decoration-none mx-2" rel="nofollow" target="_blank" title="Facebook">
@@ -41,7 +41,7 @@
             </svg>
         </a>
     </div>
-    <span class="text-grey-1">Copyright © 2019 - 2022. Criado por Happyroms.com. Todos os direitos reservados.</span>
+    <span class="text-grey-1">Copyright © 2019 - 2022. Created by Happyroms.com. All rights reserved.</span>
 </footer>
 <link rel="stylesheet" href="<?= get_template_directory_uri() ?>/assets/css/non-critical.css?<?= $ver ?>" media="print"
       onload="this.media='all'">

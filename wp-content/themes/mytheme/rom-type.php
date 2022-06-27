@@ -17,7 +17,7 @@
 				<?php endforeach; ?>
 			</div>
             <div class="description">
-                <h2 class="font-18 font-lg-25 font-weight-500">DESCRIÇÃO</h2>
+                <h2 class="font-18 font-lg-25 font-weight-500">DESCRIPTION</h2>
                 <div class="content text-grey-4">
                     <?= category_description() ?>
                 </div>

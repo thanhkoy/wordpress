@@ -12,11 +12,11 @@ $oneItem = get_queried_object();
             <div class="d-flex justify-content-between mb-3 flex-column flex-lg-row">
                 <h1 class="font-18 font-lg-25 font-weight-500 mb-3 text-grey-1 text-uppercase"><?= $oneItem->name ?></h1>
                 <div class="form-group">
-                    <label class="font-12 text-main">ORDENAR POR</label>
+                    <label class="font-12 text-main">SORT BY</label>
                     <select class="form-control font-14 text-grey-1 p-1">
-                        <option selected>Atualizados recentemente</option>
-                        <option>Novos lançamentos</option>
-                        <option>Populares</option>
+                        <option selected>Recently updated</option>
+                        <option>New releases</option>
+                        <option>Popular</option>
                     </select>
                 </div>
             </div>
@@ -42,7 +42,7 @@ $oneItem = get_queried_object();
 
 			</div>
             <div class="description">
-                <h2 class="font-18 font-lg-25 font-weight-500">DESCRIÇÃO</h2>
+                <h2 class="font-18 font-lg-25 font-weight-500">DESCRIPTION</h2>
                 <div class="content text-grey-4">
                     <?= $oneItem->description ?>
                 </div>

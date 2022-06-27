@@ -4,8 +4,8 @@
 		<section class="mb-4">
 			<div class="d-flex align-items-baseline mb-2">
 				<img src="<?= get_template_directory_uri() ?>/assets/images/title_dot.svg" class="mr-1"
-				     width="12" height="20" alt="ESCOLHA DOS EDITORES">
-				<h2 class="font-18 font-lg-25 font-weight-500 text-grey-1">ESCOLHA DOS EDITORES</h2>
+				     width="12" height="20" alt="CHOICE OF EDITORS">
+				<h2 class="font-18 font-lg-25 font-weight-500 text-grey-1">CHOICE OF EDITORS</h2>
 			</div>
 			<div class="row px-2">
                 <?php global $post; $new_post = getChoicePost(); if ($new_post->have_posts()) while ($new_post->have_posts()):
@@ -18,8 +18,8 @@
 		<section class="mb-4">
 			<div class="d-flex align-items-baseline mb-2">
 				<img src="<?= get_template_directory_uri() ?>/assets/images/title_dot.svg" class="mr-1"
-				     width="12" height="20" alt="POPULARES CONSOLES ROMS">
-				<h2 class="font-18 font-lg-25 font-weight-500 text-grey-1">POPULARES CONSOLES ROMS</h2>
+				     width="12" height="20" alt="POPULAR CONSOLES ROMS">
+				<h2 class="font-18 font-lg-25 font-weight-500 text-grey-1">POPULAR CONSOLES ROMS</h2>
 			</div>
 			<div class="row px-2">
                 <?php
@@ -34,15 +34,15 @@
 				<?php endforeach; ?>
 				<div class="col-12 d-flex justify-content-center mt-2">
 					<a href="/" class="bg-main btn-main text-white px-3 py-2 rounded-1 text-decoration-none font-12 font-weight-500 text-uppercase"
-					   title="POPULARES CONSOLES ROMS">Veja mais</a>
+					   title="POPULAR CONSOLES ROMS">See more</a>
 				</div>
 			</div>
 		</section>
 		<section class="mb-4">
 			<div class="d-flex align-items-baseline mb-2">
 				<img src="<?= get_template_directory_uri() ?>/assets/images/title_dot.svg" class="mr-1"
-				     width="12" height="20" alt="JOGOS MAIS ATUALIZADOS">
-				<h2 class="font-18 font-lg-25 font-weight-500 text-grey-1">JOGOS MAIS ATUALIZADOS</h2>
+				     width="12" height="20" alt="MOST UPDATED GAMES">
+				<h2 class="font-18 font-lg-25 font-weight-500 text-grey-1">MOST UPDATED GAMES</h2>
 			</div>
 			<div class="row px-2">
 				<?php

@@ -10,11 +10,11 @@
             <div class="d-flex justify-content-between flex-column flex-lg-row mb-3">
                 <h1 class="font-18 font-lg-25 font-weight-500 mb-3 text-grey-1 text-uppercase"><?= single_cat_title() ?></h1>
                 <div class="form-group">
-                    <label class="font-12 text-main">ORDENAR POR</label>
+                    <label class="font-12 text-main">SORT BY</label>
                     <select class="form-control font-14 text-grey-1 p-1">
-                        <option selected>Atualizados recentemente</option>
-                        <option>Novos lançamentos</option>
-                        <option>Populares</option>
+                        <option selected>Recently updated</option>
+                        <option>New releases</option>
+                        <option>Popular</option>
                     </select>
                 </div>
             </div>
@@ -37,7 +37,7 @@
 
 			</div>
             <div class="description">
-                <h2 class="font-18 font-lg-25 font-weight-500">DESCRIÇÃO</h2>
+                <h2 class="font-18 font-lg-25 font-weight-500">DESCRIPTION</h2>
                 <div class="content text-grey-4">
 	                <?= category_description() ?>
                 </div>

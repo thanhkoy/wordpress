@@ -10,9 +10,6 @@ $ver = '0.01';
     <meta name="Keywords" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="shortcut icon" href="<?= get_template_directory_uri() ?>/assets/images/favicon.png"/>
-    <link rel="apple-touch-icon" href="<?= get_template_directory_uri() ?>/assets/images/favicon.png"/>
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@400;500;700&display=swap" rel="stylesheet">
@@ -58,7 +55,7 @@ $ver = '0.01';
 		        'items_wrap' => '<ul class="list-unstyled position-relative">%3$s</ul>
                                         <form role="search" action="' . home_url() . '" method="GET" class="form-search d-lg-none position-relative bg-white rounded-pill mt-5" autocomplete="off">
                                             <input type="text" name="s" class="text-truncate w-100 pl-3 pr-5 bg-transparent border-0 font-14 h-35px"
-                                                   placeholder="Busque seus jogos e aplicativos favoritos..." autocomplete="off">
+                                                   placeholder="Search for your favorite games and apps..." autocomplete="off">
                                             <button class="border-0 bg-transparent position-absolute top-0 bottom-0 right-0 px-2">
                                                 <i class="fa fa-search font-22" aria-hidden="true"></i>
                                             </button>
@@ -74,7 +71,7 @@ $ver = '0.01';
                 <form role="search" action="<?= home_url() ?>" method="GET" class="w-100 h-100 position-relative" autocomplete="off">
                     <div class="w-100 top-0 left-0 position-absolute rounded overflow-hidden">
                         <input type="text" name="s" class="w-100 border-0 font-16 bg-transparent pl-3 pr-5 h-50px"
-                               placeholder="Busque seus jogos e aplicativos favoritos..." autocomplete="off">
+                               placeholder="Search for your favorite games and apps..." autocomplete="off">
                         <button class="position-absolute right-0 h-100 border-0 bg-transparent text-grey px-3">
                             <i class="fa fa-search font-22" aria-hidden="true"></i>
                         </button>
