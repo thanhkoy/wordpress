@@ -52,10 +52,10 @@ if (!empty($parent[0]->parent)) $parent[] = get_category($parent[0]->parent);
                         </div>
                     </div>
                     <div class="col-12 col-lg-4 d-flex flex-column align-items-end justify-content-center pl-lg-5">
-                        <?php if(get_field('file_download')): ?>
+                        <?php if(get_field('link_download')): ?>
                             <a class="bg-main btn-main btn-main-hover-orange text-white p-3 font-18 rounded-pill text-decoration-none d-block p-lg-4 text-center my-2 w-100 download"
-                               href="<?php the_field('file_download'); ?>" title="Download now">
-                                <i class="fa fa-cloud-download mr-2 font-22" aria-hidden="true"></i>Download now
+                               href="<?php the_field('link_download'); ?>" title="<?= get_field('text_download') ?? 'Download now' ?>">
+                                <i class="fa fa-cloud-download mr-2 font-22" aria-hidden="true"></i><?= get_field('text_download') ?? 'Download now' ?>
                             </a>
                         <?php endif; ?>
                         <a class="px-3 py-2 font-14 text-center rounded-pill bg-blue btn-opacity d-block text-decoration-none my-2 w-100"
