@@ -12,24 +12,35 @@ function getChoicePost() {
 	return new WP_Query($params);
 }
 
-function getNewPost() {
+function getUpdatedPost() {
 	$params = array(
 		'showposts' => 12,
-		'orderby' => 'date',
-		'order' => 'desc',
+		'meta_key' => 'updated',
+		'orderby' => 'meta_value',
+		'meta_type' => 'DATETIME',
+		'order' => 'DESC',
 		'paged' => get_query_var('paged'),
 		'post_type'=>array('post')
 	);
 	return new WP_Query($params);
 }
 
-function getPopularPost() {
+function getPopularRomPost() {
+	$sub_cats = get_term_children( CATEGORY_ROM, 'category' );
+	array_push($sub_cats, CATEGORY_ROM);
 	$params = array(
 		'showposts' => 12,
 		'orderby' => 'views',
 		'order' => 'desc',
 		'paged' => get_query_var('paged'),
-		'post_type'=>array('post')
+		'post_type' => array('post'),
+		'tax_query' => array(
+			array(
+				'taxonomy' => 'category',
+				'field'    => 'id',
+				'terms'    => $sub_cats
+			),
+		)
 	);
 	return new WP_Query($params);
 }

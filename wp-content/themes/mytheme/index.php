@@ -24,7 +24,7 @@
 			<div class="row px-2">
                 <?php
                 $categories = get_categories(
-	                array('parent' => 5)
+	                array('parent' => CATEGORY_ROM)
                 );
                 ?>
 				<?php if (!empty($categories)) foreach ($categories as $value): ?>
@@ -33,7 +33,7 @@
                     ]) ?>
 				<?php endforeach; ?>
 				<div class="col-12 d-flex justify-content-center mt-2">
-					<a href="/" class="bg-main btn-main text-white px-3 py-2 rounded-1 text-decoration-none font-12 font-weight-500 text-uppercase"
+					<a href="<?= get_category_link(CATEGORY_ROM) ?>" class="bg-main btn-main text-white px-3 py-2 rounded-1 text-decoration-none font-12 font-weight-500 text-uppercase"
 					   title="POPULAR CONSOLES ROMS">See more</a>
 				</div>
 			</div>
@@ -47,7 +47,7 @@
 			<div class="row px-2">
 				<?php
                     global $post;
-				    $new_post = getNewPost();
+				    $new_post = getUpdatedPost();
 				    if ($new_post->have_posts()) while ($new_post->have_posts()):
 					    $new_post->the_post();
 				?>

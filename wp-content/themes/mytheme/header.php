@@ -1,5 +1,6 @@
 <?php
 $ver = '0.01';
+define('CATEGORY_ROM', 5)
 ?>
 <!doctype html>
 <html lang="vi-VN">

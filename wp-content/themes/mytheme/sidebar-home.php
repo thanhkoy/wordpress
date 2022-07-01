@@ -3,7 +3,7 @@
         <div class="bg-main rounded mb-3 py-3 text-center w-100">
             <h3 class="mb-0 font-15 text-white">POPULAR GAME ROMS</h3>
         </div>
-	    <?php global $post; $new_post = getPopularPost(); if ($new_post->have_posts()) while ($new_post->have_posts()):
+	    <?php global $post; $new_post = getPopularRomPost(); if ($new_post->have_posts()) while ($new_post->have_posts()):
 		    $new_post->the_post();
 		    ?>
 		    <?php get_template_part('template/article', 'sidebar', [
