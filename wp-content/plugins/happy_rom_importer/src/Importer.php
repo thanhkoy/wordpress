@@ -1,5 +1,12 @@
 <div class="wrap">
     <h2>Happy Rom Importer</h2>
+    <div class="status"></div>
+</div>
+<div class="wrap">
+    <button type="button" class="update-rom">Update ROMS</button>
+    <button type="button" class="update-emulator">Update EMULATORS</button>
+</div>
+<div class="wrap">
     <form action="" method="post" target="_self" autocomplete="off">
         <label><?= !empty($_POST['url']) ? 'New ' : '' ?>URL</label>
         <input type="text" name="url" placeholder="<?= !empty($_POST['url']) ? 'New ' : '' ?>URL" autocomplete="off">
@@ -8,22 +15,6 @@
 </div>
 <div class="wrap">
 <?php
-function insert_media($url, $description) {
-	$file_array  = [ 'name' => wp_basename( $url ), 'tmp_name' => download_url( $url ) ];
-
-	if ( is_wp_error( $file_array['tmp_name'] ) ) {
-		return $file_array['tmp_name'];
-	}
-
-	$thumbnail_id = media_handle_sideload( $file_array, 0, $description );
-
-	if ( is_wp_error( $thumbnail_id ) ) {
-		@unlink( $file_array['tmp_name'] );
-		return $thumbnail_id;
-	}
-	return $thumbnail_id;
-}
-
 if (!empty($_POST['url']) && !empty(trim($_POST['url']))) {
 	include( PLUGIN_LOCATE . 'assets/lib/simplehtmldom_1_9_1/simple_html_dom.php');
 
@@ -54,6 +45,7 @@ if (!empty($_POST['url']) && !empty(trim($_POST['url']))) {
 			$nation = $information->find('div.pub-date', 1)->plaintext;
 			$size = $information->find('div.file-size', 0)->plaintext;
 			$download_count = $information->find('div.download.count', 0)->plaintext;
+			$os = $information->find('div.pub-date', 2)->plaintext;
 		}
 		$slide_show = $html->find('div.owl-carousel img');
 		$img_slide_show = [];
@@ -93,6 +85,7 @@ if (!empty($_POST['url']) && !empty(trim($_POST['url']))) {
 			if (!empty($nation)) update_field( 'nation', $nation, $post_id );
 			if (!empty($size)) update_field( 'size', $size, $post_id );
 			if (!empty($download_count)) update_field( 'download_count', $download_count, $post_id );
+			if (!empty($os)) update_field( 'os', $os, $post_id );
 			if (!empty($img_slide_show)) foreach ($img_slide_show as $key => $value) {
 				if ($key == 3) break;
 				$img_id = insert_media($value, $title . ($key + 1));
