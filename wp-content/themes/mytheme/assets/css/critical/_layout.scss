@@ -8,7 +8,7 @@ body {
 }
 
 main {
-  .breadcrumb {
+  nav[aria-label=breadcrumbs] {
     a {
       color: $main-color;
       text-decoration: none;

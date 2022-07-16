@@ -1,26 +1,46 @@
 <?php
+add_filter( 'wpcf7_form_elements', 'do_shortcode' );
+
+$category_rom = get_terms([
+	'fields' => 'ids',
+	'taxonomy' => 'category',
+	'name' => 'ROMS',
+	'hide_empty' => false,
+])[0];
+define('CATEGORY_ROM', $category_rom);
+
+$category_blog = get_terms([
+	'fields' => 'ids',
+	'taxonomy' => 'category',
+	'name' => 'BLOG',
+	'hide_empty' => false,
+])[0];
+define('CATEGORY_BLOG', $category_blog);
+
 add_theme_support( 'post-thumbnails' );
 
 function getChoicePost() {
 	$params = array(
-		'showposts' => 12,
+		'showposts' => 9,
 		'orderby' => 'date',
 		'order' => 'desc',
 		'paged' => get_query_var('paged'),
-		'post_type'=>array('post')
+		'post_type'=>array('post'),
+		'cat' => '-' . CATEGORY_BLOG
 	);
 	return new WP_Query($params);
 }
 
 function getUpdatedPost() {
 	$params = array(
-		'showposts' => 12,
+		'showposts' => 8,
 		'meta_key' => 'updated',
 		'orderby' => 'meta_value',
 		'meta_type' => 'DATETIME',
 		'order' => 'DESC',
 		'paged' => get_query_var('paged'),
-		'post_type'=>array('post')
+		'post_type'=>array('post'),
+		'cat' => '-' . CATEGORY_BLOG
 	);
 	return new WP_Query($params);
 }
@@ -42,6 +62,19 @@ function getPopularRomPost() {
 			),
 		)
 	);
+	return new WP_Query($params);
+}
+
+function getBlogPost($exclude = null, $limit = 12) {
+	$params = array(
+		'showposts' => $limit,
+		'orderby' => 'views',
+		'order' => 'desc',
+		'paged' => get_query_var('paged'),
+		'post_type' => array('post'),
+		'cat' => CATEGORY_BLOG
+	);
+	if (!empty($exclude)) $params['post__not_in'] = [$exclude];
 	return new WP_Query($params);
 }
 
@@ -73,7 +106,7 @@ class My_Walker_Nav_Menu extends Walker_Nav_Menu {
 
 add_filter('wp_nav_menu_items', 'add_item_nav', 10, 2);
 function add_item_nav($items, $args){
-	if( $args->menu == 'SUONERIE' ){
+	if( $args->theme_location == 'main_top' ){
 		$items = '<a class="d-lg-none position-absolute top-0 right-0" href="javascript:void(0)"
                        onclick="document.getElementById(\'menu-head\').classList.toggle(\'open\');">
                         <i class="fa fa-times text-white font-25" aria-hidden="true"></i>

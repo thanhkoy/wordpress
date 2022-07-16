@@ -22,6 +22,20 @@ if ( is_admin() ) {
 	wp_enqueue_style( 'style-css' );
 }
 
+function init_primary()
+{
+	wp_create_category('ROMS');
+	wp_create_category('EMULATORS');
+	wp_create_category('BLOG');
+	wp_insert_post([
+		'post_title' => 'GAMES',
+		'post_type' => 'page',
+		'post_status'   => 'publish'
+	]);
+	require_once ABSPATH . 'wp-admin/includes/upgrade.php';
+}
+register_activation_hook(__FILE__, 'init_primary');
+
 function init_plugin_screen() {
 	include PLUGIN_LOCATE . 'src/Importer.php';
 }

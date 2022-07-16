@@ -413,7 +413,7 @@ var charmap = (function () {
         ],
         [
           '197',
-          'A - ring above'
+          'A - ring_advance above'
         ],
         [
           '256',
@@ -569,7 +569,7 @@ var charmap = (function () {
         ],
         [
           '229',
-          'a - ring above'
+          'a - ring_advance above'
         ],
         [
           '257',

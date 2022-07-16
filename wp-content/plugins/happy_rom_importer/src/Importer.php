@@ -23,33 +23,21 @@ function insert_media($url, $description) {
 	}
 	return $thumbnail_id;
 }
+
 if (!empty($_POST['url']) && !empty(trim($_POST['url']))) {
 	include( PLUGIN_LOCATE . 'assets/lib/simplehtmldom_1_9_1/simple_html_dom.php');
 
 	$url = trim($_POST['url']);
 	$html = @file_get_html($url);
 
-	if (empty($html)) {
-		echo "<p class='error'>Crawl error</p>";
-		return 0;
-    } else
-        echo "<p class='success'>Data found</p>";
+	if (empty($html)) return 0;
 
 	$thumbnail = $html->find('div.post-thumnail img', 0)->attr['src'];
 
-	if (empty($thumbnail))
-		echo "<p class='error'>Thumbnail notfound</p>";
-    else
-        echo "<p class='success'>Thumbnail found</p>";
-
 	$meta_data = $html->find('div.txt-info-wrp', 0);
 
-	if (empty($meta_data)) {
-		echo "<p class='error'>Metadata notfound</p>";
-		return 0;
-	} else {
-		echo "<p class='success'>Metadata found</p>";
-
+	if (empty($meta_data)) return 0;
+	else{
 		$title = $meta_data->find('.title', 0)->plaintext;
 
 		$category = $meta_data->find('div.tag-wrp a.tag-item');
@@ -60,12 +48,8 @@ if (!empty($_POST['url']) && !empty(trim($_POST['url']))) {
 
 		$information = $meta_data->find('div.val', 0);
 
-		if (empty($information)) {
-			echo "<p class='error'>App info notfound</p>";
-			return 0;
-		} else {
-			echo "<p class='success'>App info found</p>";
-
+		if (empty($information)) return 0;
+		else {
 			$updated = $information->find('div.pub-date', 0)->plaintext;
 			$nation = $information->find('div.pub-date', 1)->plaintext;
 			$size = $information->find('div.file-size', 0)->plaintext;
@@ -88,7 +72,6 @@ if (!empty($_POST['url']) && !empty(trim($_POST['url']))) {
 		if (!empty($category_item)) foreach ($category_item as $value) {
 			$category_id = wp_create_category($value);
 			if (!empty($category_id)) {
-				echo "<p class='success'>Category created</p>";
 				$category_item_id[] = $category_id;
             }
         }

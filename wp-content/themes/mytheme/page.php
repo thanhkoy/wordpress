@@ -1,10 +1,10 @@
 <?php
 $oneItem = get_queried_object();
-$id = $oneItem->ID;
-switch ($id) {
-	case 34373: /*Games*/
+switch ($oneItem->post_title) {
+	case 'GAMES':
 		get_template_part('game', 'type');
 		break;
 	default:
+		get_template_part('page', 'detail');
 		break;
 }

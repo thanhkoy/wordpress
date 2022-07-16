@@ -1,19 +1,19 @@
 <?php
 $oneItem = get_queried_object();
-$category_id = $oneItem->term_id;
 $categories = get_categories(
-	array('parent' => $category_id)
+	array('parent' => $oneItem->term_id)
 );
-switch ($category_id) {
-	case 5: /*ROM*/
+switch ($oneItem->name) {
+	case 'ROMS':
 		get_template_part('rom', 'type', ['list_item' => $categories]);
 		break;
-	case 6: /*EMU*/
+	case 'EMULATORS':
 		get_template_part('emu', 'type', ['list_item' => $categories]);
 		break;
-	case 7:
+	case 'BLOG':
+		get_template_part('blog', 'post');
 		break;
 	default:
-		get_template_part('rom', 'game', ['category_id' => $category_id]);
+		get_template_part('rom', 'game', ['category_id' => $oneItem->term_id]);
 		break;
 }

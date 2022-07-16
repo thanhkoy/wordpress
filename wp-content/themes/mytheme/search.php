@@ -17,10 +17,7 @@ if (isset($_GET['s']) && trim($_GET['s']) != ''):
 <div class="row">
     <div class="col-12">
         <section class="mb-4">
-	        <?php
-	        if (function_exists('yoast_breadcrumb'))
-		        yoast_breadcrumb('<nav aria-label="breadcrumb" class="overflow-auto"><ol class="breadcrumb bg-white p-0 d-block text-nowrap">','</ol></nav>');
-	        ?>
+	        <?php if (function_exists('rank_math_the_breadcrumbs')) rank_math_the_breadcrumbs(); ?>
             <h1 class="font-18 font-lg-28 font-weight-500 mb-3 text-grey-1 text-uppercase text-center">SEARCH FOR <?= $keyword ?></h1>
             <div class="row px-2 mb-3">
 	            <?php global $post; if ($list_item->have_posts()) while ($list_item->have_posts()) {

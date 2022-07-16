@@ -1225,7 +1225,7 @@ function utf8_uri_encode( $utf8_string, $length = 0, $encode_ascii_characters = 
  * | U+00C2  | Â     | A           | Latin capital letter A with circumflex |
  * | U+00C3  | Ã     | A           | Latin capital letter A with tilde      |
  * | U+00C4  | Ä     | A           | Latin capital letter A with diaeresis  |
- * | U+00C5  | Å     | A           | Latin capital letter A with ring above |
+ * | U+00C5  | Å     | A           | Latin capital letter A with ring_advance above |
  * | U+00C6  | Æ     | AE          | Latin capital letter AE                |
  * | U+00C7  | Ç     | C           | Latin capital letter C with cedilla    |
  * | U+00C8  | È     | E           | Latin capital letter E with grave      |
@@ -1256,7 +1256,7 @@ function utf8_uri_encode( $utf8_string, $length = 0, $encode_ascii_characters = 
  * | U+00E2  | â     | a           | Latin small letter a with circumflex   |
  * | U+00E3  | ã     | a           | Latin small letter a with tilde        |
  * | U+00E4  | ä     | a           | Latin small letter a with diaeresis    |
- * | U+00E5  | å     | a           | Latin small letter a with ring above   |
+ * | U+00E5  | å     | a           | Latin small letter a with ring_advance above   |
  * | U+00E6  | æ     | ae          | Latin small letter ae                  |
  * | U+00E7  | ç     | c           | Latin small letter c with cedilla      |
  * | U+00E8  | è     | e           | Latin small letter e with grave        |
@@ -1397,8 +1397,8 @@ function utf8_uri_encode( $utf8_string, $length = 0, $encode_ascii_characters = 
  * | U+016B  | ū     | u           | Latin small letter u with macron                  |
  * | U+016C  | Ŭ     | U           | Latin capital letter U with breve                 |
  * | U+016D  | ŭ     | u           | Latin small letter u with breve                   |
- * | U+016E  | Ů     | U           | Latin capital letter U with ring above            |
- * | U+016F  | ů     | u           | Latin small letter u with ring above              |
+ * | U+016E  | Ů     | U           | Latin capital letter U with ring_advance above            |
+ * | U+016F  | ů     | u           | Latin small letter u with ring_advance above              |
  * | U+0170  | Ű     | U           | Latin capital letter U with double acute          |
  * | U+0171  | ű     | u           | Latin small letter u with double acute            |
  * | U+0172  | Ų     | U           | Latin capital letter U with ogonek                |
@@ -1562,8 +1562,8 @@ function utf8_uri_encode( $utf8_string, $length = 0, $encode_ascii_characters = 
  * | U+00E6   | æ     | ae          | Latin small letter ae                   |
  * | U+00D8   | Ø     | Oe          | Latin capital letter O with stroke      |
  * | U+00F8   | ø     | oe          | Latin small letter o with stroke        |
- * | U+00C5   | Å     | Aa          | Latin capital letter A with ring above  |
- * | U+00E5   | å     | aa          | Latin small letter a with ring above    |
+ * | U+00C5   | Å     | Aa          | Latin capital letter A with ring_advance above  |
+ * | U+00E5   | å     | aa          | Latin small letter a with ring_advance above    |
  *
  * Catalan (`ca`) locale:
  *

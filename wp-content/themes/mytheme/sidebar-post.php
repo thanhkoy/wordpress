@@ -8,9 +8,5 @@
 		    ?>
 		    <?php get_template_part('template/article', 'sidebar') ?>
 		    <?php wp_reset_postdata(); endwhile; ?>
-        <div class="col-12 d-flex justify-content-center mt-2">
-            <a href="/" class="bg-main btn-main text-white px-3 py-2 rounded-1 text-decoration-none font-12 font-weight-500 text-uppercase"
-               title="RECOMMENDED FOR YOU">See more</a>
-        </div>
     </section>
 </aside>
