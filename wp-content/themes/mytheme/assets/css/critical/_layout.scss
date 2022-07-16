@@ -20,14 +20,8 @@ main {
 
   .entry-content {
     img {
-      width: 100%;
-      max-width: 100%;
-      height: auto;
-    }
-
-    iframe {
-      width: 100%;
-      max-width: 100%;
+      display: block;
+      margin: auto;
     }
 
     h2 {

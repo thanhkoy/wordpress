@@ -22,6 +22,9 @@ if (!empty($parent[0]->parent)) $parent[] = get_category($parent[0]->parent);
                                     <p class="mb-2">Size</p>
                                     <p class="mb-2">Downloads</p>
                                     <p class="mb-2">Evaluation</p>
+                                    <?php if (get_field('os')) : ?>
+                                        <p class="mb-2">OS</p>
+                                    <?php endif; ?>
                                     <a href="/" class="font-12 text-grey-1 text-decoration-none text-hover-orange">
                                         <i class="fa fa-exclamation-circle font-14" aria-hidden="true"></i>Report
                                     </a>
@@ -31,13 +34,16 @@ if (!empty($parent[0]->parent)) $parent[] = get_category($parent[0]->parent);
                                     <p class="font-weight-500 mb-2"><?php the_field('nation') ?? ''; ?></p>
                                     <p class="font-weight-500 mb-2"><?php the_field('size') ?? ''; ?></p>
                                     <p class="font-weight-500 mb-2"><?php the_field('download_count') ?? ''; ?></p>
-                                    <div class="font-14 text-grey-3">
+                                    <div class="font-14 text-grey-3 mb-2">
                                         <i class="fa fa-star" aria-hidden="true"></i>
                                         <i class="fa fa-star" aria-hidden="true"></i>
                                         <i class="fa fa-star" aria-hidden="true"></i>
                                         <i class="fa fa-star" aria-hidden="true"></i>
                                         <i class="fa fa-star" aria-hidden="true"></i>
                                     </div>
+	                                <?php if (get_field('os')) : ?>
+                                        <p class="font-weight-500 mb-2"><?= get_field('os') ?></p>
+	                                <?php endif; ?>
                                 </div>
                             </div>
                             <div class="d-flex mt-2 flex-wrap">
