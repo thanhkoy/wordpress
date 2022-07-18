@@ -59,8 +59,10 @@ if (!empty($_POST['url']) && !empty(trim($_POST['url']))) {
 		    $tag_item[] = trim($value->plaintext);
         }
 
+		$category_emu = '';
 		$category_item_id = [];
 		if (!empty($category_item)) foreach ($category_item as $value) {
+		    if (strpos($value, 'Emulators') !== false) $category_emu = $value;
 			$category_id = wp_create_category($value);
 			if (!empty($category_id)) {
 				$category_item_id[] = $category_id;
@@ -84,7 +86,13 @@ if (!empty($_POST['url']) && !empty(trim($_POST['url']))) {
 			if (!empty($nation)) update_field( 'nation', $nation, $post_id );
 			if (!empty($size)) update_field( 'size', $size, $post_id );
 			if (!empty($download_count)) update_field( 'download_count', $download_count, $post_id );
-			if (!empty($os)) update_field( 'os', $os, $post_id );
+			if (!empty($os)) {
+				update_field( 'os', $os, $post_id );
+				if (!empty($category_emu)) {
+					$category_rom = get_cat_ID(trim(str_replace('Emulators', '', $category_emu)));
+					if (!empty($category_rom)) wp_set_post_categories($post_id, $category_rom, true);
+                }
+            }
 			if (!empty($img_slide_show)) foreach ($img_slide_show as $key => $value) {
 				if ($key == 3) break;
 				$img_id = insert_media($value, $title . ($key + 1));
