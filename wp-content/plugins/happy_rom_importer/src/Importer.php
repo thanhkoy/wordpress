@@ -16,7 +16,6 @@
 <div class="wrap">
 <?php
 if (!empty($_POST['url']) && !empty(trim($_POST['url']))) {
-	include( PLUGIN_LOCATE . 'assets/lib/simplehtmldom_1_9_1/simple_html_dom.php');
 
 	$url = trim($_POST['url']);
 	$html = @file_get_html($url);
@@ -91,6 +90,7 @@ if (!empty($_POST['url']) && !empty(trim($_POST['url']))) {
 				$img_id = insert_media($value, $title . ($key + 1));
 				update_field( 'image_' . ($key + 1), $img_id, $post_id );
 			}
+			echo '<a href="'. get_edit_post_link($post_id) .'">Edit this post</a>';
         } else {
 			echo "<p class='error'>Create post fail</p>";
 			return 0;

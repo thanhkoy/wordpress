@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Happy Rom Importer
  * Description: Allow user import data from Happy Rom and create new post with it :))
- * Version: 1.0
+ * Version: 1.1
  * Author: Hoang HUy Thanh
  **/
 ?>
@@ -22,7 +22,7 @@ if ( is_admin() ) {
 	wp_register_style( 'style-css', plugins_url( 'assets/css/style.css', __FILE__ ) );
 	wp_enqueue_style( 'style-css' );
 
-	wp_register_script( 'script-js', plugins_url( 'assets/js/plugin.js', __FILE__ ), array('jquery'), '6.2');
+	wp_register_script( 'script-js', plugins_url( 'assets/js/plugin.js', __FILE__ ), array('jquery'), '6.4');
 	wp_localize_script( 'script-js', 'plugin_ajax_object',array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
 	wp_enqueue_script( 'script-js' );
 
