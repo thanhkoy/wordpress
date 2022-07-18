@@ -8,7 +8,7 @@
 ?>
 <?php
 error_reporting( E_ALL );
-ini_set( "display_errors", 1 );
+ini_set( "display_errors", 0 );
 define( 'PLUGIN_LOCATE', plugin_dir_path( __FILE__ ) );
 include( PLUGIN_LOCATE . 'assets/lib/simplehtmldom_1_9_1/simple_html_dom.php');
 add_action( 'admin_menu', 'HappyRomImport' );
