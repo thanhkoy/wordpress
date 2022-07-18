@@ -63,7 +63,7 @@ if (!empty($_POST['url']) && !empty(trim($_POST['url']))) {
 		$category_item_id = [];
 		if (!empty($category_item)) foreach ($category_item as $value) {
 		    if (strpos($value, 'Emulators') !== false) $category_emu = $value;
-			$category_id = wp_create_category($value);
+			$category_id = get_cat_ID($value);
 			if (!empty($category_id)) {
 				$category_item_id[] = $category_id;
             }
