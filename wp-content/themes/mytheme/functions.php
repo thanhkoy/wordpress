@@ -1,20 +1,11 @@
 <?php
-add_filter( 'wpcf7_form_elements', 'do_shortcode' );
-
-$category_rom = get_terms([
-	'fields' => 'ids',
-	'taxonomy' => 'category',
-	'name' => 'ROMS',
-	'hide_empty' => false,
-])[0];
+$category_rom = get_cat_ID('ROMS');
 define('CATEGORY_ROM', $category_rom);
 
-$category_blog = get_terms([
-	'fields' => 'ids',
-	'taxonomy' => 'category',
-	'name' => 'BLOG',
-	'hide_empty' => false,
-])[0];
+$category_emulator = get_cat_ID('EMULATORS');
+define('CATEGORY_EMULATOR', $category_emulator);
+
+$category_blog = get_cat_ID('BLOG');
 define('CATEGORY_BLOG', $category_blog);
 
 add_theme_support( 'post-thumbnails' );
@@ -127,3 +118,10 @@ function allow_custom_mimes ( $existing_mimes=array() ) {
 	$existing_mimes['apk'] = 'application/vnd.android.package-archive';
 	return $existing_mimes;
 }
+
+function add_styles()
+{
+    wp_register_style('main-style', get_template_directory_uri() . '/style.css', 'all', '0.1');
+    wp_enqueue_style('main-style');
+}
+add_action('wp_enqueue_scripts', 'add_styles');

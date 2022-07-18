@@ -81,6 +81,10 @@ footer {
   height: 35px;
 }
 
+.h-40px {
+  height: 40px;
+}
+
 .rounded-1 {
   border-radius: 9px;
 }
@@ -149,13 +153,13 @@ footer {
 }
 
 .card-rom {
-  height: 155px;
+  height: 160px;
 }
 
 .card-emu {
-  height: 190px;
+  height: 200px;
   .body {
-    height: 70px;
+    height: 80px;
   }
 }
 
@@ -163,12 +167,13 @@ footer {
   &:hover {
     .blur-card {
       height: 100%;
-      opacity: 0.96;
+      opacity: 0.8;
     }
     .body {
       background: none;
       height: 100%;
       top: 0;
+      opacity: 0.8;
       .title {
         color: white;
       }

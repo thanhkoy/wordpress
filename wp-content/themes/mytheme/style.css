@@ -2,5 +2,9 @@
 Theme Name: My Theme
 Author: Hoang Huy Thanh
 Author URI: https://www.facebook.com/thanh.huy.71404
-Version: 1.0
+Version: 1.1
 */
+.content img {
+	display: block;
+	margin: auto;
+}
