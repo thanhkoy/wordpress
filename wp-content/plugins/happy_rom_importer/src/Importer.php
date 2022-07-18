@@ -88,6 +88,7 @@ if (!empty($_POST['url']) && !empty(trim($_POST['url']))) {
 			if (!empty($download_count)) update_field( 'download_count', $download_count, $post_id );
 			if (!empty($os)) {
 				update_field( 'os', $os, $post_id );
+				wp_set_post_categories($post_id, get_cat_ID('EMULATORS'), true);
 				if (!empty($category_emu)) {
 					$category_rom = get_cat_ID(trim(str_replace('Emulators', '', $category_emu)));
 					if (!empty($category_rom)) wp_set_post_categories($post_id, $category_rom, true);
