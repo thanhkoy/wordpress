@@ -17,7 +17,8 @@ function getChoicePost() {
 		'order' => 'desc',
 		'paged' => get_query_var('paged'),
 		'post_type'=>array('post'),
-		'cat' => '-' . CATEGORY_BLOG
+		'category__and' => [CATEGORY_ROM],
+		'category__not_in' => [CATEGORY_EMULATOR, CATEGORY_BLOG]
 	);
 	return new WP_Query($params);
 }
@@ -31,7 +32,8 @@ function getUpdatedPost() {
 		'order' => 'DESC',
 		'paged' => get_query_var('paged'),
 		'post_type'=>array('post'),
-		'cat' => '-' . CATEGORY_BLOG
+		'category__and' => [CATEGORY_ROM],
+		'category__not_in' => [CATEGORY_EMULATOR, CATEGORY_BLOG]
 	);
 	return new WP_Query($params);
 }
@@ -45,6 +47,8 @@ function getPopularRomPost() {
 		'order' => 'desc',
 		'paged' => get_query_var('paged'),
 		'post_type' => array('post'),
+		'category__and' => [CATEGORY_ROM],
+		'category__not_in' => [CATEGORY_EMULATOR, CATEGORY_BLOG],
 		'tax_query' => array(
 			array(
 				'taxonomy' => 'category',
@@ -121,7 +125,7 @@ function allow_custom_mimes ( $existing_mimes=array() ) {
 
 function add_styles()
 {
-    wp_register_style('main-style', get_template_directory_uri() . '/style.css', 'all', '0.1');
+    wp_register_style('main-style', get_template_directory_uri() . '/style.css', 'all', '0.3');
     wp_enqueue_style('main-style');
 }
 add_action('wp_enqueue_scripts', 'add_styles');

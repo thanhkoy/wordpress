@@ -1,10 +1,23 @@
 /*
-Theme Name: My Theme
+Theme Name: TECHTOROMS
 Author: Hoang Huy Thanh
 Author URI: https://www.facebook.com/thanh.huy.71404
-Version: 1.1
+Version: 1.2
 */
+
 .content img {
 	display: block;
 	margin: auto;
+}
+
+aside .kksr-legend {
+	display: none;
+}
+
+.cat_des_small {
+	max-height: 200px;
+}
+
+.cat_des_small .read-more {
+	background-image: linear-gradient(to bottom,transparent,grey);
 }

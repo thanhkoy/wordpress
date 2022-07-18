@@ -1,5 +1,23 @@
 <?= get_header(); ?>
-<?php if (!empty($args['category_id'])): ?>
+<?php
+if (!empty($args['type'])) :
+    $not_in = [];
+	if ($args['type'] == 'rom')
+	    $not_in[] = CATEGORY_EMULATOR;
+	else
+	    $not_in[] = CATEGORY_ROM;
+	$params = array(
+		'post_type' => array('post'),
+		'post_status' => 'publish',
+		'showposts' => get_option('posts_per_page'),
+		'orderby' => 'date',
+		'order' => 'desc',
+		'paged' => get_query_var('paged'),
+		'category__and' => [$args['one_item']->term_id],
+        'category__not_in' => $not_in
+	);
+	$list_item = new WP_Query($params);
+?>
 <div class="row">
 	<div class="col-12">
 		<section class="mb-4">
@@ -16,10 +34,14 @@
                 </div>
             </div>
 			<div class="row px-2 mb-3">
-				<?php if (have_posts()) : while (have_posts()) {
-					the_post();
-					get_template_part('template/article', 'game', ['class' => 'col-lg-2']);
-				}
+				<?php
+				global $post;
+				if ($list_item->have_posts()) :
+                    while ($list_item->have_posts()) {
+                        $list_item->the_post();
+                        get_template_part('template/article', 'game', ['class' => 'col-lg-2']);
+                        wp_reset_postdata();
+				    }
 				else: ?>
                     <p><?php esc_html_e( 'Sorry, no posts matched your criteria.' ); ?></p>
 				<?php endif; ?>

@@ -7,11 +7,7 @@
 			    <div class="position-absolute top-0 right-0 bg-blue font-12 text-white px-2 w-50 text-truncate"><?= $args['tag'] ?></div>
 			<?php endif; ?>
 			<div class="font-12 text-grey-3">
-				<i class="fa fa-star" aria-hidden="true"></i>
-				<i class="fa fa-star" aria-hidden="true"></i>
-				<i class="fa fa-star" aria-hidden="true"></i>
-				<i class="fa fa-star" aria-hidden="true"></i>
-				<i class="fa fa-star" aria-hidden="true"></i>
+				<?= kk_star_ratings(); ?>
 			</div>
 			<span class="font-14 font-weight-500 text-grey-3 max-line-2"><?= get_the_title() ?></span>
 		</div>
